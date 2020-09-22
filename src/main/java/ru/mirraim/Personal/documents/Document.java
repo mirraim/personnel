@@ -6,8 +6,7 @@ import java.util.Date;
 
 public abstract class Document {
     private Employee employee;
-    private static final String PREFIX = "D-";
-    private int id;
+    private String prefix = "D-";
     private String documentNumber;
     private String staffName;
     private Date date;
@@ -22,16 +21,24 @@ public abstract class Document {
 
     public Document(Employee employee) {
         this.employee = employee;
-        this.documentNumber= PREFIX + id;
         this.staffName = employee.getName() + " " + employee.getSurname();
         this.date = new Date();
+    }
+
+    public void setDocumentNumber(int id) {
+        this.documentNumber = prefix + id;
     }
 
     public String getStaffName() {
         return staffName;
     }
 
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
     public Date getDate() {
         return date;
     }
+
 }
