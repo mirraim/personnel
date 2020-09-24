@@ -1,9 +1,6 @@
 package ru.mirraim.Personal;
 
-import ru.mirraim.Personal.documents.Contract;
-import ru.mirraim.Personal.documents.LayOffOrder;
-import ru.mirraim.Personal.documents.Order;
-import ru.mirraim.Personal.documents.RecruitOrder;
+import ru.mirraim.Personal.documents.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +27,7 @@ public class Staff {
       staffList.add(employee);
         Contract contract = Contract.createContract(employee);
         contracts.add(contract);
-        employee.setContractNumber(contract.getDocumentNumber());
+        employee.setContract(contract);
         RecruitOrder recruitOrder = RecruitOrder.createOrder(employee);
         orders.add(recruitOrder);
     }
@@ -39,6 +36,15 @@ public class Staff {
         LayOffOrder layOffOrder = LayOffOrder.createOrder(employee);
         employee.setPosition(Position.FIRED);
         employee.setSalary(0);
+    }
+
+    public void transfer(Employee employee, Position newPosition, int newSalary){
+        Agreement agreement = new Agreement(employee,newPosition, newSalary);
+        employee.addAgreement(agreement);
+        TransferOrder transferOrder = new TransferOrder(employee, newPosition, newSalary);
+        orders.add(transferOrder);
+        employee.setPosition(newPosition);
+        employee.setSalary(newSalary);
     }
 
     public static List<Employee> getStaffList() {

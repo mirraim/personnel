@@ -7,7 +7,7 @@ import java.util.Date;
 public abstract class Document {
     private Employee employee;
     private String prefix = "D-";
-    private String documentNumber;
+    protected String documentNumber;
     private String staffName;
     private Date date;
 

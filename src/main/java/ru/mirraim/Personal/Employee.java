@@ -1,17 +1,25 @@
 package ru.mirraim.Personal;
 
+import ru.mirraim.Personal.documents.Agreement;
+import ru.mirraim.Personal.documents.Contract;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Employee {
     private String name;
     private String surname;
     private Position position;
     private int salary;
-    private String contractNumber;
+    private Contract contract;
+    private List <Agreement> agreements;
 
     public Employee(String name, String surname, Position position, int salary) {
         this.name = name;
         this.surname = surname;
         this.position = position;
         this.salary = salary;
+        this.agreements = new ArrayList<Agreement>();
     }
 
     public String getSurname() {
@@ -42,12 +50,20 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getContractNumber() {
-        return contractNumber;
+    public Contract getContract() {
+        return contract;
     }
 
-    public void setContractNumber(String contractNumber) {
-        this.contractNumber = contractNumber;
+    public void setContract(Contract contract) {
+        this.contract = contract;
+    }
+
+    public List<Agreement> getAgreements() {
+        return agreements;
+    }
+
+    public void addAgreement(Agreement agreement){
+        agreements.add(agreement);
     }
 
     @Override
