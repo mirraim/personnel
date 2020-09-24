@@ -4,5 +4,6 @@ public enum Position {
     DIRECTOR,
     ACCOUNTANT,
     COURIER,
-    SELLER
+    SELLER,
+    FIRED
 }

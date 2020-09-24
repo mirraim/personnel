@@ -1,6 +1,7 @@
 package ru.mirraim.Personal;
 
 import ru.mirraim.Personal.documents.Contract;
+import ru.mirraim.Personal.documents.LayOffOrder;
 import ru.mirraim.Personal.documents.Order;
 import ru.mirraim.Personal.documents.RecruitOrder;
 
@@ -32,6 +33,12 @@ public class Staff {
         employee.setContractNumber(contract.getDocumentNumber());
         RecruitOrder recruitOrder = RecruitOrder.createOrder(employee);
         orders.add(recruitOrder);
+    }
+
+    public void layOff(Employee employee){
+        LayOffOrder layOffOrder = LayOffOrder.createOrder(employee);
+        employee.setPosition(Position.FIRED);
+        employee.setSalary(0);
     }
 
     public static List<Employee> getStaffList() {
